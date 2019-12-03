@@ -1,0 +1,75 @@
+.mainBlock {
+    width: 100%;
+    height: 100px;
+    border-radius: 2px;
+    border: solid 1px #d7dce2;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+.contentBlock {
+    width: 90%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.removeButton{
+    width: 91px;
+    height: 24px;
+    border-radius: 2px;
+    border: solid 1px #d8dde3;
+    background-color: #f7f8fa;
+    font-family: OpenSans;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    color: #53687e;
+}
+.editButton{
+    margin-left: 10px;
+    width: 61px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: #2888d1;
+    border: solid 0px #d8dde3;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+}
+.valueItem {
+    display: flex;
+    margin-top: 12px;
+
+}
+.addressItem{
+    margin-right: 16px;
+    font-family: OpenSans;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.4px;
+    text-align: right;
+    color: #53687e;
+}
+.buttonsItem{
+    margin-top: 12px;
+}
+.contactsItem{
+    margin-right: 16px;
+    font-family: OpenSans;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.4px;
+    text-align: right;
+    color: #53687e;
+}
+.propsValues{
+    font-family: OpenSans;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.4px;
+    color: #334152;
+}

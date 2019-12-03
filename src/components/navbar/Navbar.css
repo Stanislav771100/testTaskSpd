@@ -1,0 +1,31 @@
+.navbar {
+    width: 219px;
+    height: 1045px;
+    border: solid 1px #ffffff;
+    background-color: #e9f0f5;
+}
+.progressBar {
+    width: 219px;
+    height: 147.4px;
+    border: solid 1px #ffffff;
+    background-color: #175786;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menuItem {
+      width: 85%;
+      padding-left: 15%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: solid 1px #d8dde3;
+      font-family: OpenSans;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      text-align: left;
+      color: #53687e;
+  }
+  .menuItem :hover {
+      cursor: pointer;
+  }
