@@ -4,7 +4,7 @@
     border: solid 1px #ffffff;
     background-color: #e9f0f5;
 }
-.progressBar {
+.progress-bar {
     width: 219px;
     height: 147.4px;
     border: solid 1px #ffffff;
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
   }
-  .menuItem {
+  .menu-item {
       width: 85%;
       padding-left: 15%;
       height: 50px;
@@ -26,6 +26,6 @@
       text-align: left;
       color: #53687e;
   }
-  .menuItem :hover {
+  .menu-item :hover {
       cursor: pointer;
   }

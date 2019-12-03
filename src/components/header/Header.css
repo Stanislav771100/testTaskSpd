@@ -6,24 +6,24 @@
     align-items: center;
     justify-content: center;
 }
-.flexHeader {
+.flex-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
     height: 64px;
 }
-.flexHeader p {
+.flex-header p {
     font-family: OpenSans;
     font-size: 14px;
     letter-spacing: 0.63px;
     color: #ffffff;
     margin-left: 36px;
 }
-.leftContainers {
+.left-containers {
     display: flex;
     align-items: center;
 }
-.rightContainers {
+.right-containers {
     display: flex;
 }

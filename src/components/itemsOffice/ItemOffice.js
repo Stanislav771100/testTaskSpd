@@ -1,32 +1,32 @@
-import React from 'react'
-import './itemOffice.css'
+import React from './node_modules/react'
+import './ItemOffice.css'
 
 const ItemOffice = () => {
   return (
-    <div className='mainBlock'>
-      <div className='contentBlock'>
-        <div className='valueItem'>
-          <div className='addressItem'>
+    <div className='main-block'>
+      <div className='content-block'>
+        <div className='value-item'>
+          <div className='address-item'>
             <p>Address:</p>
           </div>
-          <div className='propsValues'>
+          <div className='props-values'>
           
           </div>
 
         </div>
-        <div className='valueItem'>
+        <div className='value-item'>
           <div className='contactsItem'>
             <p>Phone:</p>
             <p>Email:</p>
           </div>
-          <div className='propsValues'>
+          <div className='props-values'>
           
           </div>
         </div>
-        <div className='buttonsItem'>
+        <div className='buttons-item'>
           
-          <button className='removeButton'>Remove</button>
-          <button className='editButton'>Edit</button>
+          <button className='remove-button'>Remove</button>
+          <button className='edit-button'>Edit</button>
         </div>
       </div>
     </div>

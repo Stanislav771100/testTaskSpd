@@ -3,7 +3,7 @@
     height: 1600px;
     background-color: #f7f8fa;
 }
-.bgContainer {
+.bg-container {
     display: flex;
     justify-content: center;
     width: 100%;

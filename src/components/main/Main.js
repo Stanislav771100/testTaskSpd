@@ -1,14 +1,14 @@
-import React from 'react'
+import React from './node_modules/react'
 import './Main.css'
-import Header from '../header/Header'
-import Content from '../content/Content'
-import Navbar from '../navbar/Navbar'
+import Header from '../Header/Header'
+import Content from '../Content/Content'
+import Navbar from '../Navbar/Navbar'
 
 const Main = () => {
   return (
     <div className='main'>
       <Header />
-      <div className='bgContainer'>
+      <div className='bg-container'>
         <div className='container'>
           <Navbar />
           <Content />
