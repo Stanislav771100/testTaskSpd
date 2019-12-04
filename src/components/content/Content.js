@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import './Content.css'
 import ItemOffice from '../ItemsOffice/ItemOffice'
 import AddItem from '../AddItem/AddItem'
+import { connect } from 'react-redux'
 
-const Content = () => {
+const Content = (props) => {
   const [showAddItem, setShowAddItem] = useState(false)
 
   function showAdd () {
     setShowAddItem(!showAddItem)
   }
-
   return (
     <div className='content'>
       <div className='margin-content'>
@@ -28,7 +28,9 @@ const Content = () => {
         {showAddItem &&
         <AddItem showAddItem={showAddItem} setShowAddItem={setShowAddItem} />
         }
-        <ItemOffice />
+        {props.office.map((item, index) => {
+          return <ItemOffice office={item} index={index} key={index} />
+        })}
         <div className='linehr' />
         <div className='footer'>
           <div className='left-element-footer'>
@@ -45,4 +47,10 @@ const Content = () => {
   )
 }
 
-export default Content
+const mapStateToProps = state => {
+  return {
+    office: state.officeReducer.data
+  }
+}
+
+export default connect(mapStateToProps)(Content)

@@ -3,7 +3,7 @@ import officeReducer from '../reducers/officeReducer'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
-  office: officeReducer
+  officeReducer
 })
 
 const configureStore = () => {

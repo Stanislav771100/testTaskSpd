@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './AddItem.css'
 import { connect } from 'react-redux'
+import { changeOffice } from '../../actions/index'
+import { bindActionCreators } from 'redux'
 
-const ItemOffice = (props) => {
-  const [country, setCountry] = useState('')
+const AddItem = (props) => {
+  const [country, setCountry] = useState(props.office ? props.office.country : '')
   const [province, setProvince] = useState('')
   const [code, setCode] = useState('')
   const [city, setCity] = useState('')
@@ -13,15 +15,29 @@ const ItemOffice = (props) => {
   const [fax, setFax] = useState('')
   const [email, setEmail] = useState('')
   const [officeType, setOfficeType] = useState(false)
-  const [office, setOffice] = useState([])
+  const [office, setOffice] = useState(null)
 
+  const { changeOffice } = props
+
+  useEffect(() => {
+    if (office) {
+      changeOffice(office)
+    }
+  }, [office, changeOffice]
+  )
   function clickCancel () {
-    console.log(props)
-    props.setShowAddItem(!props.showAddItem)
+    if (props.onCancel) {
+      props.onCancel()
+    } else {
+      props.setShowAddItem(!props.showAddItem)
+    }
   }
-  function saveOffice () {
-    setOffice(country, province, code, city, street, secondAddress, phone, fax, email, officeType)
-    props.changeStateProp('data', office, 'main')
+  const saveOffice = () => {
+    if (props.onSave) {
+      props.onSave({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
+    } else {
+      setOffice({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
+    }
   }
   return (
     <div className='main-edit-block'>
@@ -58,7 +74,8 @@ const ItemOffice = (props) => {
             <input onChange={e => setPhone(e.target.value)} value={phone} />
             <input onChange={e => setFax(e.target.value)} value={fax} />
             <input onChange={e => setEmail(e.target.value)} value={email} />
-            <input onChange={e => setOfficeType(e.target.value)} className='checkbox' type='checkbox' />
+            <input onChange={e => setOfficeType(e.target.value)} value={officeType} className='checkbox' type='checkbox' />
+            {console.log(officeType)}
           </div>
         </div>
         <div className='block-edit-buttons'>
@@ -71,7 +88,11 @@ const ItemOffice = (props) => {
 }
 const mapStateToProps = state => {
   return {
-    office: state.office.data
+    office: state.officeReducer.data
   }
 }
-export default connect(mapStateToProps)(ItemOffice)
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators({ changeOffice }, dispatch)
+
+})
+export default connect(mapStateToProps, mapDispatchToProps)(AddItem)
