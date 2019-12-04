@@ -6,15 +6,15 @@ import { bindActionCreators } from 'redux'
 
 const AddItem = (props) => {
   const [country, setCountry] = useState(props.office ? props.office.country : '')
-  const [province, setProvince] = useState('')
-  const [code, setCode] = useState('')
-  const [city, setCity] = useState('')
-  const [street, setStreet] = useState('')
-  const [secondAddress, setSecondAddress] = useState('')
-  const [phone, setPhone] = useState('')
-  const [fax, setFax] = useState('')
-  const [email, setEmail] = useState('')
-  const [officeType, setOfficeType] = useState(false)
+  const [province, setProvince] = useState(props.office ? props.office.province : '')
+  const [code, setCode] = useState(props.office ? props.office.code : '')
+  const [city, setCity] = useState(props.office ? props.office.city : '')
+  const [street, setStreet] = useState(props.office ? props.office.street : '')
+  const [secondAddress, setSecondAddress] = useState(props.office ? props.office.secondAddress : '')
+  const [phone, setPhone] = useState(props.office ? props.office.phone : '')
+  const [fax, setFax] = useState(props.office ? props.office.fax : '')
+  const [email, setEmail] = useState(props.office ? props.office.email : '')
+  const [officeType, setOfficeType] = useState(props.office ? props.office.officeType : false)
   const [office, setOffice] = useState(null)
 
   const { changeOffice } = props
@@ -32,9 +32,10 @@ const AddItem = (props) => {
       props.setShowAddItem(!props.showAddItem)
     }
   }
-  const saveOffice = () => {
+  function saveOffice () {
     if (props.onSave) {
       props.onSave({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
+      
     } else {
       setOffice({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
     }

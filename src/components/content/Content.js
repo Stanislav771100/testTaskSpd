@@ -29,7 +29,7 @@ const Content = (props) => {
         <AddItem showAddItem={showAddItem} setShowAddItem={setShowAddItem} />
         }
         {props.office.map((item, index) => {
-          return <ItemOffice office={item} index={index} key={index} />
+          return <ItemOffice showAdd={() => showAdd} office={item} index={index} key={index} />
         })}
         <div className='linehr' />
         <div className='footer'>

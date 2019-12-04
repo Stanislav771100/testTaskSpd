@@ -15,17 +15,24 @@ const ItemOffice = (props) => {
           <div className='value-item'>
             <div className='address-item'>
               <p>Address:</p>
-              <p>{props.office.city}</p>
             </div>
-            <div className='props-values' />
-
+            <div className='props-values'>
+              <p>{props.office.code}</p>
+              <p>{props.office.province}</p>
+              <p>{props.office.secondAddress}</p>
+              <p>{props.office.city + ' ' + props.office.street}</p>
+              <p>{props.office.country}</p>
+            </div>
           </div>
           <div className='value-item'>
-            <div className='contactsItem'>
+            <div className='contacts-item'>
               <p>Phone:</p>
               <p>Email:</p>
             </div>
-            <div className='props-values' />
+            <div className='props-values'>
+              <p>{props.office.phone}</p>
+              <p>{props.office.email}</p>
+            </div>
           </div>
           <div className='buttons-item'>
 
@@ -35,8 +42,8 @@ const ItemOffice = (props) => {
         </div>
       </div>
         : <AddItem office={props.office} onCancel={() => { setEditMode(false) }} onSave={(office) => {
+          props.showAdd(false)
           props.editOffice(office, props.index)
-          setEditMode(false)
         }} />
       }
     </>
