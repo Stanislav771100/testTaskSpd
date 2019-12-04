@@ -1,4 +1,4 @@
-import React from './node_modules/react'
+import React from 'react'
 import './Navbar.css'
 import progress from '../../assets/images/8@2x.png'
 

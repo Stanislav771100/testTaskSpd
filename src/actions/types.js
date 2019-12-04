@@ -1,0 +1,1 @@
+export const OFFiCE_CHANGE = 'OFFICECHANGE_STATE_PROP'

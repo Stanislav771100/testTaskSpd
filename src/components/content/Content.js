@@ -1,8 +1,15 @@
-import React from './node_modules/react'
+import React, { useState } from 'react'
 import './Content.css'
 import ItemOffice from '../ItemsOffice/ItemOffice'
+import AddItem from '../AddItem/AddItem'
 
 const Content = () => {
+  const [showAddItem, setShowAddItem] = useState(false)
+
+  function showAdd () {
+    setShowAddItem(!showAddItem)
+  }
+
   return (
     <div className='content'>
       <div className='margin-content'>
@@ -15,9 +22,12 @@ const Content = () => {
         </div>
         <div className='linehr' />
         <div className='top-element'>
-          <button className='button-add-new'>Add New Office</button>
+          <button onClick={showAdd} className='button-add-new'>Add New Office</button>
           <p className='counter'>Offices</p>
         </div>
+        {showAddItem &&
+        <AddItem showAddItem={showAddItem} setShowAddItem={setShowAddItem} />
+        }
         <ItemOffice />
         <div className='linehr' />
         <div className='footer'>

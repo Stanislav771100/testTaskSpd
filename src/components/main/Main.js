@@ -1,4 +1,4 @@
-import React from './node_modules/react'
+import React from 'react'
 import './Main.css'
 import Header from '../Header/Header'
 import Content from '../Content/Content'

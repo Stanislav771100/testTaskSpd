@@ -1,4 +1,4 @@
-import React from './node_modules/react'
+import React from 'react'
 import './Header.css'
 import logo from '../../assets/images/p-b-logo@2x.png'
 
