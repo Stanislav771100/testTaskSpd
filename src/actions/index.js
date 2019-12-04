@@ -22,7 +22,9 @@ export function editOffice (value, index) {
   )
 }
 export function deleteOffice (index) {
+  window.alert('deleted')
   return (
+
     {
       type: actionTypes.OFFiCE_DELETE,
       state: {

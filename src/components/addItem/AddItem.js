@@ -35,9 +35,9 @@ const AddItem = (props) => {
   function saveOffice () {
     if (props.onSave) {
       props.onSave({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
-      
     } else {
       setOffice({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
+      // props.setShowAddItem(false)
     }
   }
   return (

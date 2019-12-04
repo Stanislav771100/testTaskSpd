@@ -7,7 +7,6 @@ import AddItem from './../AddItem/AddItem'
 
 const ItemOffice = (props) => {
   const [editMode, setEditMode] = useState(false)
-  console.log(props)
   return (
     <>
       {!editMode ? <div className='main-block'>
@@ -41,9 +40,9 @@ const ItemOffice = (props) => {
           </div>
         </div>
       </div>
-        : <AddItem office={props.office} onCancel={() => { setEditMode(false) }} onSave={(office) => {
-          props.showAdd(false)
+        : <AddItem editMode office={props.office} onCancel={() => { setEditMode(false) }} onSave={(office) => {
           props.editOffice(office, props.index)
+          setEditMode(false)
         }} />
       }
     </>
