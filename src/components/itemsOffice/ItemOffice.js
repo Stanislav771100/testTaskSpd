@@ -42,7 +42,7 @@ const ItemOffice = (props) => {
         </div>
       </div>
         : <AddItem office={props.office} onCancel={() => { setEditMode(false) }} onSave={(office) => {
-          props.showAdd(false)
+          props.showAdd(false) 
           props.editOffice(office, props.index)
         }} />
       }
