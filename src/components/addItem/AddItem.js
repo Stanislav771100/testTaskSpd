@@ -3,8 +3,10 @@ import './AddItem.css'
 import { connect } from 'react-redux'
 import { changeOffice } from '../../actions/index'
 import { bindActionCreators } from 'redux'
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector'
 
 const AddItem = (props) => {
+  console.log(props.office.province)
   const [country, setCountry] = useState(props.office ? props.office.country : '')
   const [province, setProvince] = useState(props.office ? props.office.province : '')
   const [code, setCode] = useState(props.office ? props.office.code : '')
@@ -32,14 +34,55 @@ const AddItem = (props) => {
       props.setShowAddItem(!props.showAddItem)
     }
   }
+
   function saveOffice () {
+    console.log(country, province)
     if (props.onSave) {
       props.onSave({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
-    } else {
+    } else if ((country && province && code && street)) {
       setOffice({ country, province, code, city, street, secondAddress, phone, fax, email, officeType })
-      // props.setShowAddItem(false)
     }
   }
+  function selectCountry (val) {
+    setCountry(val)
+  }
+
+  const [codeCheck, setCheckCode] = useState(true)
+  const checkCode = () => {
+    const regexCode = /\d{5,5}/gim
+    const codeCheck = code
+    if (code && codeCheck.match(regexCode)) {
+      setCheckCode(!codeCheck)
+    } else {
+    }
+  }
+  const [provinceCheck, setCheckProvince] = useState(true)
+  const checkProvince = () => {
+    const regexProvince = /(?=.*[a-z])(?=.*[A-Z]).{3,}\D/gim
+    const provinceCheck = province
+    if (province && provinceCheck.match(regexProvince)) {
+      setCheckProvince(false)
+      console.log(false)
+    }
+  }
+  const [cityCheck, setCheckCity] = useState(true)
+  const checkCity = () => {
+    const regexCity = /(?=.*[a-z])(?=.*[A-Z]).{3,}\D/gim
+    const cityCheck = city
+    if (city && cityCheck.match(regexCity)) {
+      setCheckCity(false)
+    }
+  }
+  const [streetCheck, setCheckStreet] = useState(true)
+  const checkStreet = () => {
+    const regexStreet = /(?=.*[a-z])(?=.*[A-Z]).{3,}\D/gim
+    const streetCheck = street
+    if (street && streetCheck.match(regexStreet)) {
+      setCheckStreet(false)
+      console.log(streetCheck)
+    }
+  }
+
   return (
     <div className='main-edit-block'>
       <div className='content-edit'>
@@ -54,11 +97,18 @@ const AddItem = (props) => {
 
           </div>
           <div className='adress-inputs'>
-            <input onChange={e => setCountry(e.target.value)} value={country} />
-            <input onChange={e => setProvince(e.target.value)} value={province} />
-            <input onChange={e => setCode(e.target.value)} value={code} />
-            <input onChange={e => setCity(e.target.value)} value={city} />
-            <input onChange={e => setStreet(e.target.value)} value={street} />
+            <CountryDropdown
+              className='dropdown'
+              value={country}
+              onChange={(val) => selectCountry(val)} />
+            <p>{province && provinceCheck && 'Invalid province'}</p>
+            <input onBlur={checkProvince} onChange={e => setProvince(e.target.value)} value={province} />
+            <p>{code && codeCheck ? 'Invalid code' : ''}</p>
+            <input onBlur={checkCode} onChange={e => setCode(e.target.value)} value={code} />
+            <p>{city && cityCheck ? 'Invalid city' : ''}</p>
+            <input onBlur={checkCity} onChange={e => setCity(e.target.value)} value={city} />
+            <p>{street && streetCheck ? 'Invalid street' : ''}</p>
+            <input onBlur={checkStreet} onChange={e => setStreet(e.target.value)} value={street} />
             <input onChange={e => setSecondAddress(e.target.value)} value={secondAddress} />
           </div>
 
